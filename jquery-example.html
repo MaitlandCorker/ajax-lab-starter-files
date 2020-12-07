@@ -43,4 +43,23 @@
       </table>
     </div>
   </body>
+  <script>
+    (function() {
+ var api = "data/myData.json";
+ var staffStr = ""
+ var tableBody = document.querySelector("tbody");
+ $.getJSON(api, function(myData) {
+ console.dir(myData);
+ myData.forEach(function (staffMember) {
+ staffStr +=
+ `<tr>
+ <td>${staffMember.name}</td>
+ <td>${staffMember.email}</td>
+ <td>${staffMember.age}</td>
+ </tr>`
+ })
+ tableBody.innerHTML = staffStr
+ });
+ })();
+  </script>
 </html>

@@ -33,4 +33,20 @@
       <ul class="busList"></ul>
     </div>
   </body>
+  <script>
+    (function() {
+ var api = "data/buses.xml";
+ var myXHR = new XMLHttpRequest();
+ var busList = document.querySelector(".busList");
+ var adList = "";
+ myXHR.open("GET", api, true);
+ myXHR.addEventListener("readystatechange", showData);
+ myXHR.send();
+ function showData() {
+ if (myXHR.readyState == 4) {
+ console.dir(myXHR.responseXML);
+ }
+ }
+ })();
+  </script>
 </html>
